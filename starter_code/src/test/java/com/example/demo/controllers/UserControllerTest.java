@@ -36,12 +36,13 @@ public class UserControllerTest {
     }
 
     @Test
-    public void givenCreateUSerRequest_thenCreatesUser() throws Exception {
+    public void givenCreateUSerRequest_thenCreatesUser() {
         final String username = "username";
 
         CreateUserRequest createUserRequest = new CreateUserRequest();
         createUserRequest.setUsername(username);
         createUserRequest.setPassword("password");
+        createUserRequest.setConfirmPassword("password");
 
         final ResponseEntity<User> response = userController.createUser(createUserRequest);
         assertEquals(HttpStatus.OK, response.getStatusCode());
